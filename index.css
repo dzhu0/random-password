@@ -73,6 +73,8 @@ button {
     cursor: pointer;
 }
 
+button:active { transform: scale(0.98) }
+
 @media (min-width: 470px) {
     .container { padding: 80px 50px; }
 }
