@@ -1,62 +1,53 @@
-const upperLetter = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]
-const lowerLetter = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
-const numbers = ["0","1","2","3","4","5","6","7","8","9"]
-const symbols = ["~","`","!","@","#","$","%","^","&","*","(",")","_","-","+","=","{","[","}","]",",","|",":",";","<",">",".","?","/"]
+const upperLetter = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
+const lowerLetter = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
+const numbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
+const symbols = ["~", "`", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "_", "-", "+", "=", "{", "[", "}", "]", ",", "|", ":", ";", "<", ">", ".", "?", "/"]
 
-let symbolsEl = document.getElementById("symbols-el")
-let numbersEl = document.getElementById("numbers-el")
-let lengthEl = document.getElementById("length-el")
-let generateEl = document.getElementById("generate-el")
-let password1 = document.getElementById("password1-el")
-let password2 = document.getElementById("password2-el")
-let passwordGenerated = false
+const password1 = document.getElementById("password1-el")
+const password2 = document.getElementById("password2-el")
+let isPasswordGenerated = false
 
-generateEl.addEventListener("click", function() {
+document.getElementById("generate-el").addEventListener("click", () => {
     password1.textContent = generatePassword()
     password2.textContent = generatePassword()
-    passwordGenerated = true
+    isPasswordGenerated = true
 })
 
-password1.addEventListener("click" , function() {
-    copy(password1.textContent)
-})
-
-password2.addEventListener("click" , function() {
-    copy(password2.textContent)
-})
+password1.addEventListener("click", () => {copy(password1.textContent)})
+password2.addEventListener("click", () => {copy(password2.textContent)})
 
 function copy(text) {
-    if (passwordGenerated) {
-        navigator.clipboard.writeText(text)
-    }
+    if (!isPasswordGenerated) return
+    navigator.clipboard.writeText(text)
 }
 
-function randomIndexUpTo(num) {
+function getRandomIndex(num) {
     return Math.floor(Math.random() * num)
 }
 
 function generatePassword() {
+    const lengthEl = document.getElementById("length-el")
+    const characters = createChar()
     let password = ""
-    
-    let characters = createChar()
-    
+
     for (let i = 0; i < lengthEl.value; i++) {
-        password += characters[randomIndexUpTo(characters.length)]
+        const randomIndex = getRandomIndex(characters.length)
+        password += characters[randomIndex]
     }
-    
+
     return password
 }
 
 function createChar() {
     let characters = upperLetter.concat(lowerLetter)
-    
-    if (symbolsEl.checked) {
+
+    if (document.getElementById("symbols-el").checked) {
         characters = characters.concat(symbols)
     }
-    
-    if (numbersEl.checked) {
+
+    if (document.getElementById("numbers-el").checked) {
         characters = characters.concat(numbers)
     }
-    
+
     return characters
 }

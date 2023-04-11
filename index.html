@@ -1,33 +1,66 @@
-<html>
-    <head><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
-        <link rel="stylesheet" href="index.css">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Karla:wght@800&display=swap" rel="stylesheet">
-    </head>
-    <body>
-        <div class="container">
-            <div class="card">
-                <h1 class="title">Generate a<br><span>random password</span></h1>
-                <p class="text">Never use an insecure password again.</p>
-                <div class="inputs">
-                    <label for="symbols-el">Symbols:
-                        <input id="symbols-el" name="symbols-el" type="checkbox" checked="checked">
-                    </label>
-                    <label for="numbers-el">Numbers:
-                        <input id="numbers-el" name="numbers-el" type="checkbox" checked="checked">
-                    </label>
-                    <label for="length-el">Length (15-8):
-                        <input id="length-el" name="length-el" type="number" min="8" max="15" value="15">
-                    </label>
-                </div>
-                <button id="generate-el">Generate passwords</button>
-                <div class="passwords">
-                    <button id="password1-el">RaNdOm PaSsWoRd</button>
-                    <button id="password2-el">rAnDoM pAsSwOrD</button>
-                </div>
-            </div>
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <title>Random Password</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Styles -->
+    <link rel="stylesheet" href="index.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Karla:wght@800&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="title">Generate a<span>random password</span></h1>
+        <p class="description">Never use an insecure password again.</p>
+
+        <div class="inputs">
+            <label for="symbols-el">Symbols:
+                <input
+                    id="symbols-el"
+                    name="symbols-el"
+                    type="checkbox"
+                    checked="checked"
+                >
+            </label>
+
+            <label for="numbers-el">Numbers:
+                <input
+                    id="numbers-el"
+                    name="numbers-el"
+                    type="checkbox"
+                    checked="checked"
+                >
+            </label>
+
+            <label for="length-el">Length (8-15):
+                <input
+                    id="length-el"
+                    name="length-el"
+                    type="number"
+                    min="8"
+                    max="15"
+                    value="15"
+                >
+            </label>
         </div>
-        <script src="index.js"></script>
-    </body>
+
+        <button id="generate-el" class="generate-btn">Generate passwords</button>
+
+        <hr>
+
+        <div class="passwords">
+            <button id="password1-el">RaNdOm PaSsWoRd</button>
+            <button id="password2-el">rAnDoM pAsSwOrD</button>
+        </div>
+    </div>
+
+    <script src="index.js"></script>
+</body>
+
 </html>

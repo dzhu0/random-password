@@ -1,71 +1,88 @@
-body {
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+    padding: 0;
     margin: 0;
-    background: #1C1C1C;
-    color: #FFFFFF;
+}
+
+body {
+    background-color: #1C1C1C;
     font-family: 'Inter', sans-serif;
+    color: #FFFFFF;
 }
 
 .container {
-    background: #1F2937;
-    width: 550px;
-    height: 550px;
-    margin: 60px auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.card {
-    width: 450px;
+    background-color: #1F2937;
+    max-width: 550px;
+    padding: 40px 25px;
+    margin-inline: auto;
 }
 
 .title {
     font-family: 'Karla', sans-serif;
-    margin: 0;
     font-size: 40px;
 }
 
-.text {
-    color: #D5D4D8;
-    margin: 0;
-    margin-top: 10px;
-    margin-bottom: 50px;
-    font-size: 20px;
-}
-
-span {
+.title span {
+    display: block;
     color: #4ADF86;
 }
 
-#generate-el {
-    color: #FFFFFF;
-    background: #10B981;
-    width: 190px;
-    height: 42px;
-}
-
-.passwords {
-    display: flex;
-    justify-content: space-between;
-    padding-top: 35px;
-    border-top: 1px #2F3E53 solid;
-    margin-top: 35px;
-    font-weight: 500;
-}
-
-button {
-    font-family: 'Inter', sans-serif;
-    width: 210px;
-    height: 40px;
-    border: none;
-    border-radius: 6px;
-    background: #273549;
-    color: #55F991;
+.description {
+    font-size: 20px;
+    color: #D5D4D8;
+    margin-block: 10px 50px;
 }
 
 .inputs {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    gap: 10px;
     margin-bottom: 35px;
+}
+
+.generate-btn {
+    background-color: #10B981;
+    width: 190px;
+    height: 42px;
+    color: #FFFFFF;
+}
+
+hr {
+    border: 1px #2F3E53 solid;
+    margin-block: 35px;
+}
+
+.passwords {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+button {
+    background-color: #273549;
+    width: 210px;
+    height: 40px;
+    font-family: 'Inter', sans-serif;
+    color: #55F991;
+    font-weight: 500;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+@media (min-width: 470px) {
+    .container { padding: 80px 50px; }
+}
+
+@media (min-width: 410px) {
+    .container { margin-block: 50px; }
+
+    .inputs,
+    .passwords {
+        flex-direction: row;
+        justify-content: space-between;
+    }
 }
